@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lab5-secrets
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tinnguyen41/argocd-lab.git
+    targetRevision: main
+    path: lab5-secrets
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
