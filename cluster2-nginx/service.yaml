@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-cluster2
+  namespace: dev2
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-cluster2
+  ports:
+  - port: 80
+    targetPort: 80
